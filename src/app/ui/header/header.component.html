@@ -1,0 +1,16 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Course Fetch</a>
+  <div class="navbar-expand mr-auto">
+    <div *ngIf="currentUser" class="navbar-nav"> 
+      <a [routerLink]="['/dashboard', currentUser?.username]" routerLinkActive="active" class="nav-item nav-link active">Dashboard</a>
+      <a [routerLink]="['/profile', currentUser?.username]" routerLinkActive="active" class="nav-item nav-link active">Profile</a>
+    </div>    
+  </div>
+  <div class="navbar-expand ml-auto navbar-nav" *ngIf="currentUser">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link logout-link" (click)="logout()" target="_blank">
+        Logout
+      </a>
+    </div>
+  </div>
+</nav>

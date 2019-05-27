@@ -1,0 +1,40 @@
+.course{
+    margin: 1em 0;
+    position: relative; 
+    
+   }
+   .course .card{
+    box-shadow: 0 2px 6px 0 rgba(50,50,50,.4);
+   }
+   .course .card img{
+    width: 100%;
+    height: 12em;
+   }
+   .course .card-title{
+    color:black;
+   }
+   .course .card-title .badge-trending {
+        background-color: rgb(249, 104, 22) !important; 
+        color: #fff;
+   }
+   .course .card-title .badge-featured {
+    background-color: #238ae6;
+    color: #fff;
+}
+   .course .card-body{
+    padding: 1em;
+   }
+
+   .course .card-body .card-text {
+        color: #5d666d;
+   }
+
+   .course .card-footer span {
+        color: #6c757d
+   }
+
+   .register-button {
+        border-radius: 6em;
+        padding-left: 3em;
+        padding-right: 3em;
+   }

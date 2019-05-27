@@ -1,0 +1,17 @@
+.login-form {
+    background-image: url("../../../assets/images/login-bg.jpg");
+    form {
+        padding: 5em 5em;
+        color: #fff;
+        margin: 0 auto;
+        width: 500px;
+        height: 100vh;
+        label {
+            text-shadow: 0px 0px 4px rgba(0, 0, 0, 1);
+        }
+        button {
+            width: 100%;
+            box-shadow: 0 1px 3px 0 rgba(50,50,50,.75);
+        }
+    }
+}

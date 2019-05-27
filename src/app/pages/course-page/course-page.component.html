@@ -1,0 +1,49 @@
+<ng-container *ngIf="course">
+  <div class="course">
+    <div class="container">
+      <div class="row">
+        <div class="card">
+        <div class="card-img">
+          <img src="../../../assets/images/course.jpg" class="img-fluid">
+        </div>
+        
+        <div class="card-body">
+          <h6 class="card-title">{{course.courseName}}
+            <span *ngIf="course?.trending" class="badge badge-light badge-trending">
+              <i class="fa fa-bolt" aria-hidden="true">
+                Trending
+              </i>
+            </span>
+            <span *ngIf="course?.featured" class="badge badge-light badge-featured">
+                <i class="fa fa-star" aria-hidden="true">
+                  Featured
+                </i>
+            </span>          
+          </h6>
+          <p class="card-text">
+              {{course.description}}
+          </p>
+          <p class="m-0 text-center">
+            <button [disabled] = "disableRegister" class="btn btn-primary register-button" 
+              (click)="registerForACourse(course.courseId)">
+              <span>{{ disableRegister && !showRegisterLoader ? 'Registered' : 'Register' }}</span>
+              <i *ngIf="showRegisterLoader" class="fa fa-spinner fa-spin" style="font-size:24px"></i>
+            </button>
+          </p>
+        </div>
+        <div class="card-footer">
+          <!-- <a href="" class="card-link">Register</a> -->
+          <span>
+              <i class="fa fa-user" aria-hidden="true">
+                <span class="ml-1">{{course.totalSeats - course.availableSeats}} Enrolled</span>
+              </i>
+              <i class="fa fa-clock-o float-right" aria-hidden="true">
+                  <span class="ml-1">{{course.duration}} days</span>
+              </i>
+          </span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

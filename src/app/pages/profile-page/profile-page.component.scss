@@ -1,0 +1,27 @@
+.course-details {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    .course-name {
+
+    }
+    .course-desc {
+        font-size: 12px;
+        color: #5d666d;
+    }
+}
+
+.student-details {
+    .card-body {
+        .card-title {
+            span {
+                font-size: 10px;
+                font-size: 14px;
+                padding: 0.5em 1em;
+            }
+        }
+        .student-username {
+            font-size: 15px;
+            color: #A599E9;
+        }
+    }
+}

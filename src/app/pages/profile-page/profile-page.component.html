@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mt-3 student-details"
+                *ngIf="(registeredStudent$ | async) as student; else loading">
+                <img class="card-img-top" src="../../../assets/images/profile-pic.png" alt="Card image">
+                <div class="card-body">
+                  <h4 class="card-title mb-0">{{student.studentName}}
+                        <span class="badge badge-info float-right">Batch: {{student?.yearOfJoin}}</span>
+                  </h4>                  
+                  <span class="student-username"><em>@{{student.username}}</em></span>
+                  <p class="card-text">{{student.department}}</p>                  
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="mt-3" 
+                *ngIf="(registeredCourseList$ | async) as courseList; else loadingOrError">  
+                <ng-container *ngIf="courseList">                    
+                    <ng-container *ngFor="let course of courseList">
+                        <div class="course-details p-3 mt-3">
+                            <h6 class="course-name">
+                                {{course.courseName}}
+                                <span class="badge badge-primary">{{course.status}}</span>
+                            </h6>
+                            <h6 class="course-desc">{{course.description}}</h6>
+                        </div>                        
+                    </ng-container>            
+                </ng-container>                
+            </div>
+            <ng-template #loadingOrError>
+                <ng-container *ngIf="errorObject; else loading">
+                    <app-error-page></app-error-page>
+                </ng-container>
+                <ng-template #loading>
+                    <app-loader-component 
+                        [showLoader]=true>
+                    </app-loader-component>  
+                </ng-template>
+            </ng-template>  
+        </div>
+    </div>
+</div>
+

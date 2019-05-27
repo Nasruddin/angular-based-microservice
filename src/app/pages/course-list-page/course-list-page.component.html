@@ -1,0 +1,33 @@
+<div class="row mb-5" *ngIf="(courseList$ | async) as courseList; else loadingOrError">
+  <ng-container *ngIf="courseList">
+      
+    <ng-container *ngFor="let course of courseList">
+        
+        <app-course-page *ngIf="course?.trending"
+          class="col-xs-12 col-md-4 mt-4"       
+          [course]="course">
+        </app-course-page>
+
+        <app-course-page *ngIf="course?.featured"
+          class="col-xs-12 col-md-4 mt-4"       
+          [course]="course">
+        </app-course-page>
+
+        <app-course-page *ngIf="!course?.trending && !course?.featured"
+          class="col-xs-12 col-md-4 mt-4"       
+          [course]="course">
+        </app-course-page>
+      </ng-container>
+  </ng-container>
+  
+</div>
+<ng-template #loadingOrError> 
+    <ng-container *ngIf="errorObject; else loading">
+        <app-error-page></app-error-page>
+    </ng-container>
+    <ng-template #loading>
+        <app-loader-component 
+          [showLoader]=true>
+        </app-loader-component>
+    </ng-template>  
+</ng-template>
